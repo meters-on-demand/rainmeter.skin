@@ -1,0 +1,12 @@
+{
+  "env": { "browser": false, "commonjs": true, "es2021": true },
+  "overrides": [],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {}
+}
