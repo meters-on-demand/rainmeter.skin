@@ -1,8 +1,6 @@
 import React from "react";
 import { useRouteError } from "react-router-dom";
 
-import { Typography } from "@mui/material";
-
 export default function ErrorBoundary() {
   const error = useRouteError();
   console.error(error);
@@ -13,10 +11,10 @@ export default function ErrorBoundary() {
 
   return (
     <div className="p-8">
-      <Typography variant="display">{message}</Typography>
-      <Typography variant="h3">
+      <h1>{message}</h1>
+      <h3 variant="h3">
         at {file} ({at})
-      </Typography>
+      </h3>
       <pre className="pt-2">
         <code>{error.stack}</code>
       </pre>

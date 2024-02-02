@@ -1,7 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* heights */
 html,
 body,
-#app, #page {
+#app,
+#page {
   min-height: 100vh;
   height: 100vh;
   max-height: 100vh;
@@ -10,7 +15,8 @@ body,
 /* widths */
 html,
 body,
-#app, #page {
+#app,
+#page {
   min-width: 100vw;
   width: 100vw;
   max-width: 100vw;
@@ -27,4 +33,34 @@ body,
 /* scroll container */
 #page {
   overflow-y: auto;
+}
+
+#app {
+  font-family: "Quicksand", sans-serif;
+}
+
+nav {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  color: #2a6d9b;
+}
+
+#wordmark {
+  font-family: "Baloo Da 2 Variable", sans-serif;
+  font-weight: 600;
+  font-size: 1.323rem;
+  color: #2a6d9b;
+}
+
+.skin h1 {
+  font-weight: 600;
+  color: #2a6d9b;
+}
+
+.skin .author {
+  font-weight: 600;
+}
+
+.skin .author svg {
+  transform: translateY(1px);
 }

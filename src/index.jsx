@@ -3,24 +3,34 @@ import { createRoot } from "react-dom/client";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Components
-import { Stack, ThemeProvider, createTheme } from "@mui/material";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 // Assets
-import "@fontsource/roboto";
+// import "@fontsource/roboto";
+// import "@fontsource/poppins";
 import "@fontsource/roboto-mono";
+import "@fontsource-variable/baloo-da-2";
+import "@fontsource/quicksand";
+import "@fontsource/inter";
+
 import "./index.css";
 
 // State
 import { RecoilRoot } from "recoil";
+import Navigation from "./components/Navigation";
+import { CssBaseline, CssVarsProvider, Sheet } from "@mui/joy";
+import { extendTheme } from "@mui/joy";
+
+const theme = extendTheme({});
 
 function App(props) {
   const router = createBrowserRouter([
     {
       element: (
-        <Stack id="page" direction="row" flexWrap="nowrap">
+        <Sheet className="w-screen h-screen overflow-hidden flex flex-column flex-nowrap">
+          <Navigation />
           <Outlet />
-        </Stack>
+        </Sheet>
       ),
       errorElement: <ErrorBoundary />,
       children: [
@@ -36,16 +46,16 @@ function App(props) {
   return <RouterProvider router={router} />;
 }
 
-const theme = createTheme({});
 const container = document.getElementById("app");
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <ThemeProvider theme={theme}>
+      <CssVarsProvider theme={theme} defaultMode="dark">
+        <CssBaseline />
         <App />
-      </ThemeProvider>
+      </CssVarsProvider>
     </RecoilRoot>
   </React.StrictMode>
 );
