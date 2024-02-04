@@ -20,6 +20,7 @@ import {
   Avatar,
   Button,
   Tooltip,
+  Link,
 } from "@mui/joy";
 import { Download, Person, Tag } from "@mui/icons-material";
 
@@ -86,7 +87,9 @@ export default function Skin(props) {
         <div className="absolute -right-2 -top-8">
           <Tooltip title={owner.name} placement="bottom-end" variant="soft">
             <IconButton variant="plain" sx={{ ...bg }}>
-              <Avatar src={owner.avatarUrl} sx={{ ...bg }} />
+              <Link target="_blank" href={`https://github.com/${owner.name}`}>
+                <Avatar src={owner.avatarUrl} sx={{ ...bg }} />
+              </Link>
             </IconButton>
           </Tooltip>
         </div>
@@ -99,9 +102,11 @@ export default function Skin(props) {
           flexWrap: "wrap",
         }}
       >
-        <Button variant="solid" startDecorator={<Download />}>
-          Latest
-        </Button>
+        <Link target="" href={uri}>
+          <Button variant="solid" startDecorator={<Download />}>
+            Latest
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
