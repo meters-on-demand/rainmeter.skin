@@ -1,6 +1,5 @@
 import React from "react";
 
-// FontAwesome
 import {
   AspectRatio,
   Card,
@@ -100,7 +99,7 @@ export default function Skin(props) {
           flexWrap: "wrap",
         }}
       >
-        <Button variant="plain" startDecorator={<Download />}>
+        <Button variant="solid" startDecorator={<Download />}>
           Latest
         </Button>
       </CardActions>

@@ -1,3 +1,5 @@
+"use strict";
+
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -6,10 +8,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 // Assets
-// import "@fontsource/roboto";
-// import "@fontsource/poppins";
 import "@fontsource/roboto-mono";
-import "@fontsource-variable/baloo-da-2";
 import "@fontsource/quicksand";
 import "@fontsource/inter";
 
@@ -19,9 +18,8 @@ import "./index.css";
 import { RecoilRoot } from "recoil";
 import Navigation from "./components/Navigation";
 import { CssBaseline, CssVarsProvider, Sheet } from "@mui/joy";
-import { extendTheme } from "@mui/joy";
 
-const theme = extendTheme({});
+import theme from "./theme.js";
 
 function App(props) {
   const router = createBrowserRouter([
@@ -42,7 +40,6 @@ function App(props) {
       ],
     },
   ]);
-
   return <RouterProvider router={router} />;
 }
 
@@ -52,7 +49,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <CssVarsProvider theme={theme} defaultMode="dark">
+      <CssVarsProvider disableNestedContext theme={theme}>
         <CssBaseline />
         <App />
       </CssVarsProvider>
